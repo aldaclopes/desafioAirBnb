@@ -78,8 +78,8 @@ function trataHospedagens(hospedagens, tipoAcomodacao) {
 
         // retorna no consolde os dados obtidos no Json da API por ocorrencia
         // console.log("nome " + linhaHospedagem + hospedagens[linhaHospedagem].name);
-        console.log("acomodacao informada " + tipoAcomodacao);
-        console.log("acomodacao API " + tipoHospedagem);
+        //console.log("acomodacao informada " + tipoAcomodacao);
+        //console.log("acomodacao API " + tipoHospedagem);
         if (tipoAcomodacao === "Todas" || tipoAcomodacao == tipoHospedagem) {
             // Montar o html da linha de cards
             colunaCards.appendChild(cardEstadia);
@@ -127,11 +127,8 @@ function buscaAcomodacao() {
         if (this.readyState == 4 && this.status == 200) {
             //        console.log('entro no if ' + this.status + this.readyState);
             var tipoBusca = document.getElementById("inputGroupSelect03");
-            console.log("Acomodacao escolhida " + tipoBusca);
             var acomodacaoSelecionada = tipoBusca.options[tipoBusca.selectedIndex].value;
-            console.log("Acomodacao escolhida " + acomodacaoSelecionada);
             var listaHospedagens = JSON.parse(this.responseText);
-            console.log("Entrada função " + listaHospedagens + acomodacaoSelecionada);
             trataHospedagens(listaHospedagens, acomodacaoSelecionada);
         };
 
