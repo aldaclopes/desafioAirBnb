@@ -17,7 +17,6 @@ function trataHospedagens(hospedagens, tipoAcomodacao) {
     var linhaHospedagem;
     let linhaCards = document.getElementById("linhaCards");
     linhaCards.innerHTML = "";
-    console.log("função " + hospedagens + tipoAcomodacao);
     for (linhaHospedagem = 0; linhaHospedagem < hospedagens.length; linhaHospedagem++) {
         // Obtem a div principal
         //console.log('entrou no for ' + hospedagens[linhaHospedagem].name)
