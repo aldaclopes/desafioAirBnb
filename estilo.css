@@ -1,49 +1,79 @@
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
- :root {
-    --color-red: #ff0000;
-    --color-white: #FFF;
-    --color-grey: #EFEFEF;
-    --color-grey-dark: #222;
-    --font-main: 'Poppins', sans-serif;
-}
-
-body {
-    font-size: 16px;
-    font-weight: 400;
-    font-family: var(--font-main);
-    color: var(--color-grey-dark)
-}
-
-#linhaCards {
-    display: flex;
-    align-items: stretch;
-}
-
-#linhaCards .item {
-    margin-bottom: 2.5em;
-}
-
-#linhaCards .item:hover {
-    transform: scale(1.1);
-    transition: all .15s ease-in-out;
-}
-
-#linhaCards .item .card .card-body {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
-}
-
-.image-back {
-    width: 100%;
-    height: 25vh;
-    display: block;
-    background-size: cover;
-    background-position: center;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
-    padding-top: 67%;
-}
+                   body {
+                       font-size: 16px;
+                       font-weight: 400;
+                       font-family: var(--font-main);
+                       color: var(--color-grey-dark)
+                   }
+                   
+                   #textoDestaque {
+                       color: deeppink;
+                       text-align: center;
+                       margin-bottom: 10 px;
+                   }
+                   
+                   #botao {
+                       background-color: deeppink;
+                   }
+                   
+                   .nav-link.active {
+                       color: deeppink;
+                   }
+                   
+                   #linhaCards .card-text-nome {
+                       color: blueviolet;
+                       font-style: inherit;
+                       text-align: center;
+                       font-weight: bolder;
+                       font-size: 80%;
+                   }
+                   
+                   #linhaCards .card-text-preco {
+                       color: black;
+                       text-align: center;
+                   }
+                   
+                   #linhaCards {
+                       display: flex;
+                       align-items: stretch;
+                       margin: 5%;
+                   }
+                   
+                   #linhaCards .item .card .card-body {
+                       flex-direction: column;
+                       display: flex;
+                       justify-content: space-between;
+                       border-top-left-radius: 16px !important;
+                       border-top-right-radius: 16px !important;
+                       width: 272px !important;
+                       height: 100% !important;
+                       border-radius: 16px !important;
+                       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15) !important;
+                   }
+                   
+                   .image-back {
+                       width: 100%;
+                       height: 25vh;
+                       display: block;
+                       background-size: cover;
+                       background-position: center;
+                       border-top-left-radius: 16%;
+                       border-top-right-radius: 16%;
+                       padding-top: 67%;
+                       overflow: hidden !important;
+                       position: relative !important;
+                   }
+                   
+                   #colunaCards {
+                       margin-top: 20px;
+                       border-top-left-radius: 16%;
+                       border-top-right-radius: 16%;
+                   }
+                   
+                   #rodape {
+                       margin: 5px;
+                       background-color: whitesmoke;
+                       text-align: center;
+                       color: blueviolet;
+                       font-family: arial;
+                       font-size: 80%;
+                   }

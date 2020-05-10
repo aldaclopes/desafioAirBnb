@@ -13,25 +13,24 @@ xmlhttp.open("GET", urlApi, true);
 xmlhttp.send();
 
 function trataHospedagens(hospedagens) {
-    console.log('entrou em myfunction ' + hospedagens + hospedagens.length);
+    //console.log('entrou em myfunction ' + hospedagens + hospedagens.length);
     var linhaHospedagem;
+    var linhaCards = document.getElementById("linhaCards");
     for (linhaHospedagem = 0; linhaHospedagem < hospedagens.length; linhaHospedagem++) {
         // Obtem a div principal
-        console.log('entrou no for ' + hospedagens[linhaHospedagem].name);
-        var linhaCards = document.getElementById("linhaCards");
-
-        // Cria a divisão de coluna principal  para inclusão dos cards de hospedagens
+        //console.log('entrou no for ' + hospedagens[linhaHospedagem].name)
+        // Cria a divisÃ£o de coluna principal  para inclusÃ£o dos cards de hospedagens
         var colunaCards = document.createElement("div");
         // Adiciona a classe e ID  da coluna principal
         colunaCards.className = "col-md-4";
         colunaCards.id = "colunaCards";
 
-        //Cria a divisão  de cada card e define as propriedades
+        //Cria a divisÃ£o  de cada card e define as propriedades
         var cardEstadia = document.createElement("div");
         cardEstadia.className = "card";
         cardEstadia.id = "cardEstadia";
 
-        //Cria a divisão  para inclusao da imagem no card e define as propriedades
+        //Cria a divisÃ£o  para inclusao da imagem no card e define as propriedades
         var imagemEstadia = document.createElement("div");
         // Adiciona a classe, ID e estilo na divisao de imagem do card
         imagemEstadia.className = "card-img-top card-image image-back";
@@ -42,31 +41,58 @@ function trataHospedagens(hospedagens) {
         //imgImagem.src = hospedagens[linhaHospedagem].photo;
 
 
-        //Cria a divisão  para inclusao do nome da hospedagem
+        //Cria a divisÃ£o  para inclusao do nome da hospedagem
         var nomeEstadia = document.createElement("div");
         // Adiciona a classe, ID e estilo na divisao de imagem do card
         nomeEstadia.className = "card-body";
         nomeEstadia.id = "nomeEstadia";
         var paragrafoEstadia = document.createElement("p");
-        paragrafoEstadia.className = "card-text";
+        paragrafoEstadia.className = "card-text-nome";
         paragrafoEstadia.innerHTML = hospedagens[linhaHospedagem].name;
 
-        //Cria a divisão  para inclusao do preço da hospedagem
+        //Cria a divisÃ£o  para inclusao do preÃ§o da hospedagem
         var precoEstadia = document.createElement("div");
         // Adiciona a classe, ID e estilo na divisao de imagem do card
         precoEstadia.className = "card-body";
         precoEstadia.id = "precoEstadia";
         var paragrafoPreco = document.createElement("p");
-        paragrafoPreco.className = "card-text";
-        paragrafoPreco.responseText = "R$ " + hospedagens[linhaHospedagem].price + " por dia";
-        paragrafoPreco.innerHTML = "R$ " + hospedagens[linhaHospedagem].price + " por dia";
+        paragrafoPreco.className = "card-text-preco";
+        //paragrafoPreco.responseText = "R$ " + hospedagens[linhaHospedagem].price + " diaria por adulto";
+        paragrafoPreco.innerHTML = "R$ " + hospedagens[linhaHospedagem].price + " diaria por adulto";
 
-        //Cria a divisão  para inclusao das propriedades
+        //Cria a divisÃ£o  para inclusao das propriedades
         var detalheEstadia = document.createElement("div");
         // Adiciona a classe, ID e estilo na divisao de imagem do card
         detalheEstadia.className = "card-footer";
         detalheEstadia.id = "detalheEstadia";
+        var tipoHospedagem = hospedagens[linhaHospedagem].property_type;
+        switch (tipoHospedagem) {
+            case "Apartamento":
+                detalheEstadia.style.color = "deeppink";
+                break;
+            case "Casa":
+                detalheEstadia.style.color = "blue";
+                break;
+            case "Chácara":
+                detalheEstadia.style.color = "green";
+                break;
+            case "Quarto":
+                detalheEstadia.style.color = "blueviolet";
+                break;
+            case "Sítio":
+                detalheEstadia.style.color = "darkgreen";
+                break;
+            case "Estúdio":
+                detalheEstadia.style.color = "orange";
+                break;
+
+
+
+
+        }
         detalheEstadia.innerHTML = hospedagens[linhaHospedagem].property_type;
+
+
 
         // retorna no consolde os dados obtidos no Json da API por ocorrencia
         // console.log("nome " + linhaHospedagem + hospedagens[linhaHospedagem].name);

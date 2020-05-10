@@ -11,7 +11,7 @@
 
     <body>
         <div class="container-fluid">
-            <div class="row" id="coluna1">
+            <div class="row" id="MenuTopo">
                 <div class="col-md-4">
                     <img alt="Logo Airbnb" src="imagens/airbnb.png" width="50%" height="auto">
                 </div>
@@ -21,10 +21,10 @@
                             <a class="nav-link active " href="# ">Home</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="# ">Profile</a>
+                            <a class="nav-link disabled " href="# ">Contato</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link disabled " href="# ">Messages</a>
+                            <a class="nav-link disabled " href="# ">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
                             <ul class="navbar-nav ml-md-auto ">
                                 <form class="form-inline ">
                                     <input class="form-control mr-sm-2 " type="text " />
-                                    <button class="btn btn-primary my-2 my-sm-0 " type="submit ">
+                                    <button class="btn btn-primary my-2 my-sm-0 " type="submit " id="botao">
                                         Busca
                                     </button>
                                 </form>>
@@ -59,24 +59,27 @@
                         </div>
                     </nav>
                     <div class="page-header " id="textoDestaque">
+                        <p></p>
                         <h1>
                             Aconchego! <small>Temos o lugar ideal para você viver uma nova experiência</small>
                         </h1>
                     </div>
                 </div>
             </div>
-            <div class="row " id="linhaCards">
+            <div class=" row " id="linhaCards">
             </div>
             <div class="row " id="rodape">
-                <div class="col-md-6 ">
-                </div>
-                <div class="col-md-6 ">
+                <div class="col-md-12 ">
+                    <p></p>
+                    <p>Criado por Alda C. Lopes do Monte como atividade no curso Hiring Coders da Gama Academy 2020 </br>
+                        São Paulo - Maio de 2020</P>
+                    <img class="imgrodape" src="imagens/gamaicon.svg " width="10%">
                 </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js " integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n " crossorigin="anonymous "></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
-        <script src="scripts/buscaquarto.js"></script>
+        <script src="scripts/buscaquarto.js "></script>
     </body>
 </hmtl>
