@@ -12,7 +12,7 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", urlApi, true);
 xmlhttp.send();
 
-function trataHospedagens(hospedagens) {
+function trataHospedagens(hospedagens, tipoAcomodacao) {
     //console.log('entrou em myfunction ' + hospedagens + hospedagens.length);
     var linhaHospedagem;
     var linhaCards = document.getElementById("linhaCards");
@@ -20,6 +20,7 @@ function trataHospedagens(hospedagens) {
         // Obtem a div principal
         //console.log('entrou no for ' + hospedagens[linhaHospedagem].name)
         // Cria a divisÃ£o de coluna principal  para inclusÃ£o dos cards de hospedagens
+        var tipoHospedagem = hospedagens[linhaHospedagem].property_type;
         var colunaCards = document.createElement("div");
         // Adiciona a classe e ID  da coluna principal
         colunaCards.className = "col-md-4";
@@ -65,48 +66,50 @@ function trataHospedagens(hospedagens) {
         // Adiciona a classe, ID e estilo na divisao de imagem do card
         detalheEstadia.className = "card-footer";
         detalheEstadia.id = "detalheEstadia";
-        var tipoHospedagem = hospedagens[linhaHospedagem].property_type;
-        switch (tipoHospedagem) {
-            case "Apartamento":
-                detalheEstadia.style.color = "deeppink";
-                break;
-            case "Casa":
-                detalheEstadia.style.color = "blue";
-                break;
-            case "Chácara":
-                detalheEstadia.style.color = "green";
-                break;
-            case "Quarto":
-                detalheEstadia.style.color = "blueviolet";
-                break;
-            case "Sítio":
-                detalheEstadia.style.color = "darkgreen";
-                break;
-            case "Estúdio":
-                detalheEstadia.style.color = "orange";
-                break;
 
+        // chama função para tratar cores por tipo de propriedade
 
+        trataTipoPropriedade(tipoHospedagem, detalheEstadia);
 
-
-        }
         detalheEstadia.innerHTML = hospedagens[linhaHospedagem].property_type;
-
 
 
         // retorna no consolde os dados obtidos no Json da API por ocorrencia
         // console.log("nome " + linhaHospedagem + hospedagens[linhaHospedagem].name);
+        if (tipoAcomodacao == null || tipoAcomodacao == tipoHospedagem) {
+            // Montar o html da linha de cards
+            colunaCards.appendChild(cardEstadia);
+            cardEstadia.appendChild(imagemEstadia);
+            imagemEstadia.appendChild(imgImagem);
+            cardEstadia.appendChild(nomeEstadia);
+            nomeEstadia.appendChild(paragrafoEstadia);
+            cardEstadia.appendChild(precoEstadia);
+            precoEstadia.appendChild(paragrafoPreco);
+            cardEstadia.appendChild(detalheEstadia);
+            linhaCards.appendChild(colunaCards);
+        }
+    }
+}
 
-
-        // Montar o html da linha de cards
-        colunaCards.appendChild(cardEstadia);
-        cardEstadia.appendChild(imagemEstadia);
-        imagemEstadia.appendChild(imgImagem);
-        cardEstadia.appendChild(nomeEstadia);
-        nomeEstadia.appendChild(paragrafoEstadia);
-        cardEstadia.appendChild(precoEstadia);
-        precoEstadia.appendChild(paragrafoPreco);
-        cardEstadia.appendChild(detalheEstadia);
-        linhaCards.appendChild(colunaCards);
+function trataTipoPropriedade(tipoPropriedade, elemento) {
+    switch (tipoPropriedade) {
+        case "Apartamento":
+            elemento.style.color = "deeppink";
+            break;
+        case "Casa":
+            elemento.style.color = "blue";
+            break;
+        case "Chácara":
+            elemento.style.color = "green";
+            break;
+        case "Quarto":
+            elemento.style.color = "blueviolet";
+            break;
+        case "Sítio":
+            elemento.style.color = "darkgreen";
+            break;
+        case "Estúdio":
+            elemento.style.color = "orange";
+            break;
     }
 }
