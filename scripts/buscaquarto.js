@@ -6,7 +6,7 @@ xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         //        console.log('entro no if ' + this.status + this.readyState);
         var listaHospedagens = JSON.parse(this.responseText);
-        trataHospedagens(listaHospedagens);
+        trataHospedagens(listaHospedagens, "Todas");
     }
 };
 xmlhttp.open("GET", urlApi, true);
@@ -15,7 +15,9 @@ xmlhttp.send();
 function trataHospedagens(hospedagens, tipoAcomodacao) {
     //console.log('entrou em myfunction ' + hospedagens + hospedagens.length);
     var linhaHospedagem;
-    var linhaCards = document.getElementById("linhaCards");
+    let linhaCards = document.getElementById("linhaCards");
+    linhaCards.innerHTML = "";
+    console.log("função " + hospedagens + tipoAcomodacao);
     for (linhaHospedagem = 0; linhaHospedagem < hospedagens.length; linhaHospedagem++) {
         // Obtem a div principal
         //console.log('entrou no for ' + hospedagens[linhaHospedagem].name)
@@ -76,7 +78,9 @@ function trataHospedagens(hospedagens, tipoAcomodacao) {
 
         // retorna no consolde os dados obtidos no Json da API por ocorrencia
         // console.log("nome " + linhaHospedagem + hospedagens[linhaHospedagem].name);
-        if (tipoAcomodacao == null || tipoAcomodacao == tipoHospedagem) {
+        console.log("acomodacao informada " + tipoAcomodacao);
+        console.log("acomodacao API " + tipoHospedagem);
+        if (tipoAcomodacao === "Todas" || tipoAcomodacao == tipoHospedagem) {
             // Montar o html da linha de cards
             colunaCards.appendChild(cardEstadia);
             cardEstadia.appendChild(imagemEstadia);
@@ -89,7 +93,7 @@ function trataHospedagens(hospedagens, tipoAcomodacao) {
             linhaCards.appendChild(colunaCards);
         }
     }
-}
+};
 
 function trataTipoPropriedade(tipoPropriedade, elemento) {
     switch (tipoPropriedade) {
@@ -112,4 +116,27 @@ function trataTipoPropriedade(tipoPropriedade, elemento) {
             elemento.style.color = "orange";
             break;
     }
-}
+    return;
+};
+
+function buscaAcomodacao() {
+    var xmlhttp = new XMLHttpRequest();
+    var urlApi = 'https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72/';
+    xmlhttp.onreadystatechange = function() {
+        //    console.log('entrou na function');
+        if (this.readyState == 4 && this.status == 200) {
+            //        console.log('entro no if ' + this.status + this.readyState);
+            var tipoBusca = document.getElementById("inputGroupSelect03");
+            console.log("Acomodacao escolhida " + tipoBusca);
+            var acomodacaoSelecionada = tipoBusca.options[tipoBusca.selectedIndex].value;
+            console.log("Acomodacao escolhida " + acomodacaoSelecionada);
+            var listaHospedagens = JSON.parse(this.responseText);
+            console.log("Entrada função " + listaHospedagens + acomodacaoSelecionada);
+            trataHospedagens(listaHospedagens, acomodacaoSelecionada);
+        };
+
+    };
+    xmlhttp.open("GET", urlApi, true);
+    xmlhttp.send();
+
+};

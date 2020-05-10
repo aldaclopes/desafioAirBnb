@@ -48,20 +48,30 @@
                                     <a class="nav-link " href="# ">Experiências</a>
                                 </li>
                             </ul>
-                            <ul class="navbar-nav ml-md-auto ">
-                                <form class="form-inline ">
-                                    <input class="form-control mr-sm-2 " type="text " placeholder="tipo de acomodacao " id="labelBusca" />
-                                    <button class="btn btn-primary my-2 my-sm-0 " type="submit " id="botaoBusca" onclick="buscarAcomodacao()">
-                                        Busca
-                                    </button>
-                                </form>>
-                            </ul>
                         </div>
                     </nav>
+
+                    <div class="input-group mb-3">
+
+                        <select class="custom-select" id="inputGroupSelect03" aria-label="Escolha Tipo Acomodação">
+                              <option selected value="Todas">Escolha o tipo de acomodacao</option>
+                              <option value="Apartamento">Apartamento</option>
+                              <option value="Casa">Casa</option>
+                              <option value="Chácara">Chácara</option>
+                              <option value="Estúdio">Estúdio</option>
+                              <option value="Loft">Loft</option>
+                              <option value="Quarto">Quarto</option>
+                              <option value="Sítio">Sítio</option>
+                        </select>
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" id="botaoBusca" onclick=buscaAcomodacao() type="button">Buscar</button>
+                        </div>
+                    </div>
+
                     <div class="page-header " id="textoDestaque">
                         <p></p>
                         <h1>
-                            Aconchego! <small>Temos o lugar ideal para você viver uma nova experiência</small>
+                            Quer aconchego? <small>Temos o lugar ideal para você viver uma nova experiência!</small>
                         </h1>
                     </div>
                 </div>
@@ -82,4 +92,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js " integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6 " crossorigin="anonymous "></script>
         <script src="scripts/buscaquarto.js "></script>
     </body>
+</hmtl>
+<script src="scripts/buscaquarto.js "></script>
+</body>
 </hmtl>
